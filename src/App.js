@@ -10,6 +10,7 @@ function App() {
   const [db, setDb] = useState('');
   const [df, setDf] = useState('');
 
+
   const getWsCols = (data) => [
     { wch: Math.max(...data.map(item => item.numerodeparc?.length || 0)) },
     { wch: 12 },  // lat
@@ -44,7 +45,7 @@ function App() {
       const wb = { Sheets: { data: ws }, SheetNames: ['data'] };
       const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
       const dataBlob = new Blob([excelBuffer], { type: fileType });
-      FileSaver.saveAs(dataBlob, 'Data_Bacs' + fileExtension);
+      FileSaver.saveAs(dataBlob, 'Data_fBacs' + fileExtension);
     }catch (error)
     {
       console.error(error);
